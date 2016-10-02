@@ -42,7 +42,7 @@ az network vnet create -g $envprefix$std$rg  --name $envprefix$std$vnet --addres
 
 ###Creating Virtual Machine(Ubuntu) with Docker for each user###
 	###Starting Inner For Loop for creating virtual machines for each student###
-	for ((i=1;n<=$dockerhostperstudent;n++))
+	for ((i=1;i<=$dockerhostperstudent;i++))
 	do
 	vm=vm$i
 	az vm create -g $envprefix$std$rg --image UbuntuLTS --name $envprefix$std$vm --authentication-type password --admin-username $adminusername --admin-password $adminpassword -l $location --nsg '' --os-disk-name $envprefix$std$vm$diskname --public-ip-address $envprefix$std$vm$ipname --size Standard_D1 --storage-account $envprefix$std$storage --vnet $envprefix$std$vnet --subnet-name Subnet > $envprefix$std$vm.txt
