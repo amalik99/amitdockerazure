@@ -1,7 +1,7 @@
+#!/bin/bash
+
 ######This will deploy the required infrastructure on Azure for this workshop##########
 
-
-#!/bin/bash
 
 ### Login to Azure Subscription ####
 
@@ -47,7 +47,7 @@ az network vnet create -g $envprefix$std$rg  --name $envprefix$std$vnet --addres
 	for ((i=1;n<=$dockerhostperstudent;n++))
 	do
 	vm=vm$i
-	az vm create -g $envprefix$std$rg --image UbuntuLTS --name $envprefix$std$vm --authentication-type password --admin-username $adminusername --admin-password $adminpassword -l $location --nsg '' --os-disk-name $envprefix$std$vm$diskname --public-ip-address $envprefix$std$vm$ipname --size Standard_D1 --storage-account $envprefix$std$storage --vnet $envprefix$std$vnet --subnet-name Subnet > output\$envprefix$std$vm.txt
+	az vm create -g $envprefix$std$rg --image UbuntuLTS --name $envprefix$std$vm --authentication-type password --admin-username $adminusername --admin-password $adminpassword -l $location --nsg '' --os-disk-name $envprefix$std$vm$diskname --public-ip-address $envprefix$std$vm$ipname --size Standard_D1 --storage-account $envprefix$std$storage --vnet $envprefix$std$vnet --subnet-name Subnet > $envprefix$std$vm.txt
 
 	az vm extension set -n DockerExtension --publisher Microsoft.Azure.Extensions --version 1.2.0 --vm-name $envprefix$std$vm --resource-group $envprefix$std$rg 
 
