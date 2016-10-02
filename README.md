@@ -4,19 +4,32 @@
 
 - [Docker](https://docs.docker.com/engine/installation/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-- Run Azure CLI Docker Container by issuing following command
-  docker run -it azuresdk/azure-cli-python
 
+- Run Azure CLI Docker Container by issuing following command
+  "docker run -it azuresdk/azure-cli-python"
+-
 
 ## General Workflow
 
-- fork/clone repo - by issuing folowing command
-"git clone https://github.com/amalik99/amitdockerazure"
+- get the scipt file by issuing following command
+"wget https://raw.githubusercontent.com/amalik99/amitdockerazure/master/deployazurevms.sh"
+
 - Ensure that you have Azure Login credentials available, requires interactive login
-- Change directory to docker repo
-- run `bash trainerazuredeploy.sh` commands to Create container for Azure CLI, and deploy instances on Azure
-- Check output folder inside cloned directory - text file for each student will be available here.
- Script will ask generic questions such as enviremetn prefix(for naming conventions), Number of Students in class, Number of Docker Host per student, Username and password to be used for proviosning the instances on Azure.
+
+- run "bash deployazurevms.sh" commands to deploy entire workload on Azure.
+
+- Script will ask generic questions such as enviremetn prefix(for naming conventions), Number of Students in class, Number of Docker Host per student, Username and password to be used for proviosning the instances on Azure.
+
+- Scipt will deploy following per student
+    -Resource Group
+    - Storage Account
+    - Virtual Network
+    - Number of Virtual Machines as spcified during deployment - Machine will have ubuntu as OS along with Docker pre-installed
+    
+- After succesfull deployment, Check current working directory for text files container Public IP for each VM per student.
+
+Spektra Systems
+
 
 
 
