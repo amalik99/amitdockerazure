@@ -1,4 +1,4 @@
-s will deploy the required infrastructure on Azure for this workshop##########
+#This will deploy the required infrastructure on Azure for this workshop##########
 
 
 ### Login to Azure Subscription ####
